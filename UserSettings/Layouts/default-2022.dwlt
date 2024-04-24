@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1536
     height: 772.8
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Console
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 21
+  controlID: 41
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -215,8 +215,8 @@ MonoBehaviour:
     y: 0
     width: 882.4
     height: 453.6
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 202, y: 221}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 14}
   m_Panes:
   - {fileID: 14}
@@ -243,8 +243,8 @@ MonoBehaviour:
     y: 453.6
     width: 1172.8
     height: 269.19998
-  m_MinSize: {x: 101, y: 121}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 17}
@@ -314,7 +314,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 39482
+  m_LastSelectedObjectID: 28310
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -825,9 +825,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0.41701704, y: 0.04022745, z: 0.02947738}
+    m_Target: {x: 0.5077214, y: 0.30078703, z: 0.02298754}
     speed: 2
-    m_Value: {x: 0.41701704, y: 0.04022745, z: 0.02947738}
+    m_Value: {x: 0.5077214, y: 0.30078703, z: 0.02298754}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -877,9 +877,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 7.0522585
+    m_Target: 7.701243
     speed: 2
-    m_Value: 7.0522585
+    m_Value: 7.701243
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -941,9 +941,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 2a450000
+      m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 16fbffff
+      m_ExpandedIDs: 02b9ffffa6b9ffffd6bbffff16fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1110,7 +1110,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/G_Asset/Internal/Scripts/Player
+    - Assets/G_Asset/Internal/Scripts/Network
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -1118,16 +1118,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/G_Asset/Internal/Scripts/Player
+  - Assets/G_Asset/Internal/Scripts/Network
   m_LastFoldersGridSize: -1
   m_LastProjectPath: F:\Unity_Project\Editor\Learn\Websocket Sharp
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 135.80002}
-    m_SelectedIDs: d8700000
-    m_LastClickedID: 28888
-    m_ExpandedIDs: 000000000a6f00000c6f00000e6f0000106f0000126f00009a700000da700000dc70000000ca9a3bffffff7f
+    m_SelectedIDs: f8700000
+    m_LastClickedID: 28920
+    m_ExpandedIDs: 00000000086f00000a6f00000c6f00000e6f0000106f0000ae700000ee700000f070000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1155,7 +1155,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000000a6f00000c6f00000e6f0000106f0000126f0000
+    m_ExpandedIDs: 00000000086f00000a6f00000c6f00000e6f0000106f0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1180,8 +1180,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 2a450000
-    m_LastClickedInstanceID: 17706
+    m_SelectedInstanceIDs: 966e0000
+    m_LastClickedInstanceID: 28310
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c62300005c840000
     m_RenameOverlay:

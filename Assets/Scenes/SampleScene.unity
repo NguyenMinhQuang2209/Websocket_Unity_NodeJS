@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 166610361}
   - component: {fileID: 166610360}
   - component: {fileID: 166610362}
+  - component: {fileID: 166610363}
   m_Layer: 0
   m_Name: gameController
   m_TagString: Untagged
@@ -153,6 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0441d5ff5b1592c4694ae047c05731b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ipAddress: ws://localhost:3000
 --- !u!4 &166610361
 Transform:
   m_ObjectHideFlags: 0
@@ -181,6 +183,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 6857097983512714830, guid: f39298f53efcca842a9cda4f3b3a9140, type: 3}
+--- !u!114 &166610363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 166610359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efbbe4656781be04f8cc5e5f96f66ea6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

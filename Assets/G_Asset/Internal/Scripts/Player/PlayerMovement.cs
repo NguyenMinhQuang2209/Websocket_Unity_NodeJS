@@ -28,6 +28,8 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.rotation = Quaternion.Euler(new(0f, input.x < 0f ? 180f : 0f, 0f));
             rb.MovePosition(rb.position + moveSpeed * Time.deltaTime * input);
+
+            PlayerNeworkManager.instance.PlayerMovement(transform.position, new(0f, input.x < 0f ? 180f : 0f, 0f));
         }
     }
 }

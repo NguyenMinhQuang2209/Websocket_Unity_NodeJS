@@ -8,7 +8,7 @@ public class SpawnNetworkObject : MonoBehaviour
 {
     public static SpawnNetworkObject instance;
     public NetworkObject player;
-    private Dictionary<int, NetworkObject> players = new();
+    private Dictionary<int, NetworkObject> objects = new();
 
     private readonly ConcurrentQueue<Action> _actions = new ConcurrentQueue<Action>();
     int clientId = -1;
@@ -23,7 +23,7 @@ public class SpawnNetworkObject : MonoBehaviour
     }
     public void AddPlayerAction(DataItem dataItem)
     {
-        if (players.ContainsKey(dataItem.id))
+        if (objects.ContainsKey(dataItem.id))
         {
             return;
         }
@@ -32,6 +32,10 @@ public class SpawnNetworkObject : MonoBehaviour
     public void RemovePlayerAction(int id)
     {
         _actions.Enqueue(() => RemovePlayer(id));
+    }
+    public void AddMovementAction(DataReceivePlayerData data)
+    {
+        _actions.Enqueue(() => MovementPlayer(data));
     }
     private void Update()
     {
@@ -53,28 +57,34 @@ public class SpawnNetworkObject : MonoBehaviour
     }
     public void SpawnPlayer(DataItem dataItem)
     {
-        if (players == null)
+        if (objects == null)
         {
             Debug.Log("Not player found");
             return;
         }
-        if (players.ContainsKey(dataItem.id))
+        if (objects.ContainsKey(dataItem.id))
         {
             return;
         }
 
-        NetworkObject tempPlayer = Instantiate(player, dataItem.GetPosition(), Quaternion.identity);
+        NetworkObject tempPlayer = Instantiate(player, dataItem.GetPosition(), Quaternion.Euler(dataItem.GetRotation()));
         tempPlayer.NetworkInit(dataItem.id, clientId == dataItem.id);
-        players[dataItem.id] = tempPlayer;
+        objects[dataItem.id] = tempPlayer;
+        PlayerNeworkManager.instance.AddPlayer(dataItem.id, tempPlayer);
     }
     public void RemovePlayer(int id)
     {
-        NetworkObject removePlayer = players[id];
-        players.Remove(id);
+        NetworkObject removePlayer = objects[id];
+        objects.Remove(id);
+        PlayerNeworkManager.instance.RemovePlayer(id);
         if (removePlayer != null)
         {
             Destroy(removePlayer.gameObject);
         }
+    }
+    public void MovementPlayer(DataReceivePlayerData data)
+    {
+        PlayerNeworkManager.instance.Movement(data);
     }
     public int GetClientId()
     {

@@ -6,11 +6,18 @@ using Newtonsoft.Json;
 using System;
 public class Ws_Client : MonoBehaviour
 {
-
-    WebSocket ws;
-    string ipAddress = "ws://localhost:3000";
-
-    public static string JOIN_PLAY = "Join_Room";
+    public WebSocket ws;
+    [SerializeField] private string ipAddress = "ws://localhost:3000";
+    public static Ws_Client instance;
+    private void Awake()
+    {
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
+    }
 
     private void Start()
     {
@@ -67,6 +74,10 @@ public class Ws_Client : MonoBehaviour
                         SpawnNetworkObject.instance.RemovePlayerAction(leavePlayerData.clientId);
                     }
                     break;
+                case "Movement":
+                    DataReceivePlayerData playerMovementData = JsonConvert.DeserializeObject<DataReceivePlayerData>(jsonData);
+                    SpawnNetworkObject.instance.AddMovementAction(playerMovementData);
+                    break;
             }
         }
         catch (Exception ex)
@@ -96,9 +107,14 @@ public class DataItem
     public int id;
     public string name;
     public List<float> position;
+    public List<float> rotation;
     public Vector3 GetPosition()
     {
         return new(position[0], position[1], position[2]);
+    }
+    public Vector3 GetRotation()
+    {
+        return new(rotation[0], rotation[1], rotation[2]);
     }
 }
 

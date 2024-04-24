@@ -5,6 +5,7 @@ const WebSocket = require("ws");
 const app = express();
 const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
+const {handleMovement} = require('./playerAction');
 
 let clientId = 0;
 let clients = [];
@@ -96,26 +97,6 @@ server.listen(3000, () => {
   console.log("Express server listening on port 3000");
 });
 
-// handle with message
-const handleMovement = (wss, data) => {
-  let tempData = {
-    eventName: "Movement",
-    clientId: data.clientId,
-    data: [
-      {
-        id: data.clientId,
-        name: "",
-        position: data.position,
-        rotation: data.rotation,
-      },
-    ],
-  };
-  wss.clients.forEach(client => {
-    if (client.readyState === WebSocket.OPEN){
-      client.send(JSON.stringify(tempData));
-    }
-  });
-};
 
 let messageType = {
   Movement: handleMovement,

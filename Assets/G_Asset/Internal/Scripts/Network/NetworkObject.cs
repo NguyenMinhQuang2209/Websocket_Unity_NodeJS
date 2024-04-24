@@ -5,7 +5,7 @@ using UnityEngine;
 public class NetworkObject : MonoBehaviour
 {
     [HideInInspector] public int networkId;
-    public bool isOwner = false;
+    [HideInInspector] public bool isOwner = false;
     public void NetworkInit(int id, bool isOwner)
     {
         networkId = id;

@@ -37,6 +37,10 @@ public class SpawnNetworkObject : MonoBehaviour
     {
         _actions.Enqueue(() => MovementPlayer(data));
     }
+    public void AddAnimatorAction(PlayerKeyValue data)
+    {
+        _actions.Enqueue(() => AnimatorPlayer(data));
+    }
     private void Update()
     {
         if (_actions.Count > 0)
@@ -85,6 +89,10 @@ public class SpawnNetworkObject : MonoBehaviour
     public void MovementPlayer(DataReceivePlayerData data)
     {
         PlayerNeworkManager.instance.Movement(data);
+    }
+    public void AnimatorPlayer(PlayerKeyValue data)
+    {
+        PlayerNeworkManager.instance.Animator(data);
     }
     public int GetClientId()
     {

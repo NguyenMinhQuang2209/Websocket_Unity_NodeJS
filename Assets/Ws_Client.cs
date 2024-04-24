@@ -78,6 +78,10 @@ public class Ws_Client : MonoBehaviour
                     DataReceivePlayerData playerMovementData = JsonConvert.DeserializeObject<DataReceivePlayerData>(jsonData);
                     SpawnNetworkObject.instance.AddMovementAction(playerMovementData);
                     break;
+                case "PlayerAnimator":
+                    PlayerKeyValue animatorData = JsonConvert.DeserializeObject<PlayerKeyValue>(jsonData);
+                    SpawnNetworkObject.instance.AddAnimatorAction(animatorData);
+                    break;
             }
         }
         catch (Exception ex)

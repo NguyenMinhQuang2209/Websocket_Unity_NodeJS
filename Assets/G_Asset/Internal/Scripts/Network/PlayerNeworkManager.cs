@@ -64,6 +64,14 @@ public class PlayerNeworkManager : MonoBehaviour
 
         Ws_Client.instance.ws.Send(jsonData);
     }
+    public void PlayerAnimator(string name, float v)
+    {
+        int clientId = SpawnNetworkObject.instance.GetClientId();
+        PlayerKeyValue keys = new("PlayerAnimator", clientId, name, v);
+        string keyJsonData = JsonConvert.SerializeObject(keys);
+
+        Ws_Client.instance.ws.Send(keyJsonData);
+    }
     public void Movement(DataReceivePlayerData data)
     {
         int clientId = SpawnNetworkObject.instance.GetClientId();
@@ -84,6 +92,22 @@ public class PlayerNeworkManager : MonoBehaviour
             }
         }
     }
+    public void Animator(PlayerKeyValue data)
+    {
+        for (int i = 0; i < playersList.Count; i++)
+        {
+            PlayerListItem player = playersList[i];
+            if (player.id == data.clientId)
+            {
+                NetworkObject currentPlayer = player.player;
+                if (currentPlayer.TryGetComponent<PlayerAnimator>(out var playerAnimator))
+                {
+                    playerAnimator.SetFloat(data.key, data.value);
+                }
+                break;
+            }
+        }
+    }
 }
 public class PlayerListItem
 {
@@ -93,5 +117,20 @@ public class PlayerListItem
     {
         this.player = player;
         this.id = id;
+    }
+}
+
+public class PlayerKeyValue
+{
+    public string eventName;
+    public int clientId;
+    public string key;
+    public float value;
+    public PlayerKeyValue(string eventName, int clientId, string key, float value)
+    {
+        this.eventName = eventName;
+        this.key = key;
+        this.clientId = clientId;
+        this.value = value;
     }
 }

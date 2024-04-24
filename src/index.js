@@ -5,7 +5,7 @@ const WebSocket = require("ws");
 const app = express();
 const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
-const {handleMovement} = require('./playerAction');
+const {handleMovement, handleAnimator} = require('./playerAction');
 
 let clientId = 0;
 let clients = [];
@@ -99,5 +99,6 @@ server.listen(3000, () => {
 
 
 let messageType = {
-  Movement: handleMovement,
+  "Movement": handleMovement,
+  "PlayerAnimator":handleAnimator
 };

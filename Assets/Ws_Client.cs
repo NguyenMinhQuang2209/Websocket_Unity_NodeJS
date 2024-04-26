@@ -40,53 +40,68 @@ public class Ws_Client : MonoBehaviour
         try
         {
             DataReceive dataReceive = JsonUtility.FromJson<DataReceive>(jsonData);
-            switch (dataReceive.eventName)
+            string[] eventsName = dataReceive.eventName.Split("-");
+            if (eventsName.Length > 1)
             {
-                case "JoinRoom":
-                    DataReceivePlayerData playerData = JsonConvert.DeserializeObject<DataReceivePlayerData>(jsonData);
-                    if (playerData.data == null)
-                    {
-                        Debug.Log("Data array is null.");
-                        return;
-                    }
-                    SpawnNetworkObject.instance.ClientId(playerData.clientId);
-                    for (int i = 0; i < playerData.data.Count; i++)
-                    {
-                        SpawnNetworkObject.instance.AddPlayerAction(playerData.data[i]);
-                    }
-                    break;
-                case "AddPlayerRoom":
-                    DataReceivePlayerData newPlayerData = JsonConvert.DeserializeObject<DataReceivePlayerData>(jsonData);
-                    if (newPlayerData.data == null)
-                    {
-                        Debug.Log("Data array is null.");
-                        return;
-                    }
-                    for (int i = 0; i < newPlayerData.data.Count; i++)
-                    {
-                        SpawnNetworkObject.instance.AddPlayerAction(newPlayerData.data[i]);
-                    }
-                    break;
-                case "Leave":
-                    DataReceivePlayerData leavePlayerData = JsonConvert.DeserializeObject<DataReceivePlayerData>(jsonData);
-                    if (leavePlayerData != null)
-                    {
-                        SpawnNetworkObject.instance.RemovePlayerAction(leavePlayerData.clientId);
-                    }
-                    break;
-                case "Movement":
-                    DataReceivePlayerData playerMovementData = JsonConvert.DeserializeObject<DataReceivePlayerData>(jsonData);
-                    SpawnNetworkObject.instance.AddMovementAction(playerMovementData);
-                    break;
-                case "PlayerAnimator":
-                    PlayerKeyValue animatorData = JsonConvert.DeserializeObject<PlayerKeyValue>(jsonData);
-                    SpawnNetworkObject.instance.AddAnimatorAction(animatorData);
-                    break;
+                string target = eventsName[0];
+                string events = eventsName[1];
+                switch (target)
+                {
+                    case "Player":
+                        PlayerAction(events, jsonData);
+                        break;
+                }
             }
         }
         catch (Exception ex)
         {
             Debug.Log(ex);
+        }
+    }
+    public void PlayerAction(string eventName, string jsonData)
+    {
+        switch (eventName)
+        {
+            case "JoinRoom":
+                DataReceivePlayerData playerData = JsonConvert.DeserializeObject<DataReceivePlayerData>(jsonData);
+                if (playerData.data == null)
+                {
+                    Debug.Log("Data array is null.");
+                    return;
+                }
+                SpawnNetworkObject.instance.ClientId(playerData.clientId);
+                for (int i = 0; i < playerData.data.Count; i++)
+                {
+                    SpawnNetworkObject.instance.AddPlayerAction(playerData.data[i]);
+                }
+                break;
+            case "AddPlayerRoom":
+                DataReceivePlayerData newPlayerData = JsonConvert.DeserializeObject<DataReceivePlayerData>(jsonData);
+                if (newPlayerData.data == null)
+                {
+                    Debug.Log("Data array is null.");
+                    return;
+                }
+                for (int i = 0; i < newPlayerData.data.Count; i++)
+                {
+                    SpawnNetworkObject.instance.AddPlayerAction(newPlayerData.data[i]);
+                }
+                break;
+            case "Leave":
+                DataReceivePlayerData leavePlayerData = JsonConvert.DeserializeObject<DataReceivePlayerData>(jsonData);
+                if (leavePlayerData != null)
+                {
+                    SpawnNetworkObject.instance.RemovePlayerAction(leavePlayerData.clientId);
+                }
+                break;
+            case "Movement":
+                DataReceivePlayerData playerMovementData = JsonConvert.DeserializeObject<DataReceivePlayerData>(jsonData);
+                SpawnNetworkObject.instance.AddMovementAction(playerMovementData);
+                break;
+            case "PlayerAnimator":
+                PlayerKeyValue animatorData = JsonConvert.DeserializeObject<PlayerKeyValue>(jsonData);
+                SpawnNetworkObject.instance.AddAnimatorAction(animatorData);
+                break;
         }
     }
 

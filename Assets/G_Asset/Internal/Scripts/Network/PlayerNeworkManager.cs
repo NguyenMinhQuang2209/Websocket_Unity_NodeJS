@@ -58,7 +58,7 @@ public class PlayerNeworkManager : MonoBehaviour
         float[] rot = new float[] { newRot.x, newRot.y, newRot.z };
 
         int clientId = SpawnNetworkObject.instance.GetClientId();
-        PlayerPosition newPosition = new("Movement", clientId, pos, rot);
+        PlayerPosition newPosition = new("Player-Movement", clientId, pos, rot);
 
         string jsonData = JsonConvert.SerializeObject(newPosition);
 
@@ -67,7 +67,7 @@ public class PlayerNeworkManager : MonoBehaviour
     public void PlayerAnimator(string name, float v)
     {
         int clientId = SpawnNetworkObject.instance.GetClientId();
-        PlayerKeyValue keys = new("PlayerAnimator", clientId, name, v);
+        PlayerKeyValue keys = new("Player-PlayerAnimator", clientId, name, v);
         string keyJsonData = JsonConvert.SerializeObject(keys);
 
         Ws_Client.instance.ws.Send(keyJsonData);

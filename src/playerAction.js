@@ -2,7 +2,7 @@ const WebSocket = require("ws");
 // handle with message
 const handleMovement = (wss, data) => {
   let tempData = {
-    eventName: "Movement",
+    eventName: "Player-Movement",
     clientId: data.clientId,
     data: [
       {

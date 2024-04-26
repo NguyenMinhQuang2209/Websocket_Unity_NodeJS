@@ -33,13 +33,13 @@ wss.on("connection", (ws) => {
   });
 
   let finalData = {
-    eventName: "JoinRoom",
+    eventName: "Player-JoinRoom",
     clientId: id,
     data: datas,
   };
 
   let newData = {
-    eventName: "AddPlayerRoom",
+    eventName: "Player-AddPlayerRoom",
     clientId: id,
     data: [
       {
@@ -81,7 +81,7 @@ wss.on("connection", (ws) => {
         if (client.readyState === WebSocket.OPEN) {
           client.send(
             JSON.stringify({
-              eventName: "Leave",
+              eventName: "Player-Leave",
               clientId: currentClient.id,
               data: [],
             })
@@ -99,6 +99,6 @@ server.listen(3000, () => {
 
 
 let messageType = {
-  "Movement": handleMovement,
-  "PlayerAnimator":handleAnimator
+  "Player-Movement": handleMovement,
+  "Player-PlayerAnimator":handleAnimator
 };

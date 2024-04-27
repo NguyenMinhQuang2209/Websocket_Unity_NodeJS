@@ -1,11 +1,27 @@
 const express = require("express");
 const http = require("http");
 const WebSocket = require("ws");
-
+const dotenv = require('dotenv');
+const cors = require('cors');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 const app = express();
+
+app.use(express.json());
+app.use(cors({
+  origin:"*"
+}));
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.json());
+dotenv.config();
+
 const server = http.createServer(app);
 const wss = new WebSocket.Server({ server });
 const {handleMovement, handleAnimator} = require('./playerAction');
+
+const router = require('./router/index');
+
+router(app);
 
 let clientId = 0;
 let clients = [];
@@ -92,6 +108,15 @@ wss.on("connection", (ws) => {
     clients = clients.filter((item) => item.client != ws);
   });
 });
+mongoose
+  .connect(process.env.DATABASE_URL)
+  .then(() => {
+    console.log("Connected to database.");
+  })
+  .catch((err) => {
+    console.log(`Your error ${err}`);
+  });
+
 
 server.listen(3000, () => {
   console.log("Express server listening on port 3000");

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6857097983512714830}
   - component: {fileID: 2670241012923602384}
   - component: {fileID: 178535277435145883}
+  - component: {fileID: 6466458353895649079}
   m_Layer: 0
   m_Name: Run 0
   m_TagString: Untagged
@@ -79,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1413294825, guid: 99a24620d31e5ce4e823c32d11e17c2c, type: 3}
+  m_Sprite: {fileID: -150523396, guid: 0c187a32c5bde4747be8d00770b07403, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -162,7 +163,7 @@ Animator:
   m_GameObject: {fileID: 1130081386875248522}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ce1c02a63400bad4a8eead2375372eeb, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0d16175b273af4b4786d66d9647854d1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -212,3 +213,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a861f31fa68e3284b893596abdd1a779, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6466458353895649079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130081386875248522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66cfd7b54dbf31b41a852b4b86b4cdef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 1976394199924864604}
+  avatar: {fileID: 6351395619249795755}

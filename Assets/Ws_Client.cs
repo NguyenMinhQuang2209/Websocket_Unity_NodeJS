@@ -31,7 +31,11 @@ public class Ws_Client : MonoBehaviour
     }
     void OnWebSocketOpen(object sender, System.EventArgs e)
     {
-        Debug.Log("WebSocket connected!");
+        string characterName = PlayerPrefs.GetString("characterName");
+        string username = PlayerPrefs.GetString("username");
+        DataItem item = new("JoinServer", username, characterName, new() { 0, 0, 0 }, new() { 0, 0, 0 });
+        string jsonData = JsonConvert.SerializeObject(item);
+        ws.Send(jsonData);
     }
 
     void OnMessageReceived(object sender, MessageEventArgs e)
@@ -123,8 +127,10 @@ public class Ws_Client : MonoBehaviour
 }
 public class DataItem
 {
+    public string eventName;
     public int id;
     public string name;
+    public string characterName;
     public List<float> position;
     public List<float> rotation;
     public Vector3 GetPosition()
@@ -134,6 +140,14 @@ public class DataItem
     public Vector3 GetRotation()
     {
         return new(rotation[0], rotation[1], rotation[2]);
+    }
+    public DataItem(string eventName, string name, string characterName, List<float> position, List<float> rotation)
+    {
+        this.eventName = eventName;
+        this.name = name;
+        this.characterName = characterName;
+        this.position = position;
+        this.rotation = rotation;
     }
 }
 

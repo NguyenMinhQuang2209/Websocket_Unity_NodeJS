@@ -1289,7 +1289,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -1761,7 +1761,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -1947,6 +1947,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1880127436}
   - component: {fileID: 1880127435}
+  - component: {fileID: 1880127437}
+  - component: {fileID: 1880127438}
   m_Layer: 0
   m_Name: controller_dontdestroy
   m_TagString: Untagged
@@ -1981,6 +1983,44 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1880127437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1880127434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9123fab51cd912e469dce0e7c1561e2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1880127438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1880127434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e393a2d14641a9f4aa3368d4185f5791, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerData: {fileID: 6466458353895649079, guid: f39298f53efcca842a9cda4f3b3a9140, type: 3}
+  items:
+  - name: Player_1
+    animator: {fileID: 9100000, guid: ce1c02a63400bad4a8eead2375372eeb, type: 2}
+    avatar: {fileID: 978012912, guid: 99a24620d31e5ce4e823c32d11e17c2c, type: 3}
+  - name: Player_2
+    animator: {fileID: 9100000, guid: 0d16175b273af4b4786d66d9647854d1, type: 2}
+    avatar: {fileID: -150523396, guid: 0c187a32c5bde4747be8d00770b07403, type: 3}
+  - name: Player_3
+    animator: {fileID: 9100000, guid: 5887bf3d38f5e764f838b819a404bb84, type: 2}
+    avatar: {fileID: 938132271, guid: 57a1443e67528144aa07582927559650, type: 3}
+  - name: Player_4
+    animator: {fileID: 9100000, guid: d235a1ab336c3dc4aaaa1b3d119e4af6, type: 2}
+    avatar: {fileID: -1442216141, guid: 8f7a60065e3984c489b9c4d41bc3dc4e, type: 3}
 --- !u!1 &1910059216
 GameObject:
   m_ObjectHideFlags: 0
@@ -2068,14 +2108,14 @@ MonoBehaviour:
   m_VerticalScrollbarEventHandler: {fileID: 0}
   m_LayoutGroup: {fileID: 0}
   m_ScrollSensitivity: 1
-  m_ContentType: 5
+  m_ContentType: 0
   m_InputType: 0
   m_AsteriskChar: 42
   m_KeyboardType: 0
   m_LineType: 0
   m_HideMobileInput: 0
   m_HideSoftKeyboard: 0
-  m_CharacterValidation: 5
+  m_CharacterValidation: 0
   m_RegexValue: 
   m_GlobalPointSize: 20
   m_CharacterLimit: 20

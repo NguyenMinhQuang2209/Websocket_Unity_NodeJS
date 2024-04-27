@@ -14,10 +14,12 @@ public class SceneController : MonoBehaviour
             return;
         }
         instance = this;
+        DontDestroyOnLoad(gameObject);
     }
     public enum SceneName
     {
-        Main,
+        Main_UI,
+        Play,
         Auth
     }
     public void LoadNewScene(SceneName name, bool isSingle)

@@ -70,7 +70,7 @@ public class SpawnNetworkObject : MonoBehaviour
         {
             return;
         }
-
+        CharacterConfig.instance.CharacterInit(dataItem.characterName);
         NetworkObject tempPlayer = Instantiate(player, dataItem.GetPosition(), Quaternion.Euler(dataItem.GetRotation()));
         tempPlayer.NetworkInit(dataItem.id, clientId == dataItem.id);
         objects[dataItem.id] = tempPlayer;

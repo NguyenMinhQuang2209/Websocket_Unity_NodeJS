@@ -27,6 +27,8 @@ public class AuthenticationController : MonoBehaviour
         {
             Login();
         });
+        usernameField.text = "minhquang";
+        passwordField.text = "12345";
     }
     public void Register()
     {
@@ -90,7 +92,9 @@ public class AuthenticationController : MonoBehaviour
 
             if (www.responseCode == 200)
             {
-                SceneController.instance.LoadNewScene(SceneController.SceneName.Main, true);
+                PlayerPrefs.SetString("username", usernameField.text);
+                DataStore.instance.SetData("username", usernameField.text);
+                SceneController.instance.LoadNewScene(SceneController.SceneName.Main_UI, true);
             }
             else
             {

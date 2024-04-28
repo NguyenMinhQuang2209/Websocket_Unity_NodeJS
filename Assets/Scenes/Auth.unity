@@ -1949,6 +1949,8 @@ GameObject:
   - component: {fileID: 1880127435}
   - component: {fileID: 1880127437}
   - component: {fileID: 1880127438}
+  - component: {fileID: 1880127440}
+  - component: {fileID: 1880127439}
   m_Layer: 0
   m_Name: controller_dontdestroy
   m_TagString: Untagged
@@ -2021,6 +2023,31 @@ MonoBehaviour:
   - name: Player_4
     animator: {fileID: 9100000, guid: d235a1ab336c3dc4aaaa1b3d119e4af6, type: 2}
     avatar: {fileID: -1442216141, guid: 8f7a60065e3984c489b9c4d41bc3dc4e, type: 3}
+--- !u!114 &1880127439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1880127434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd2de18a4c4a5844aad5a3fa6a62cf9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1880127440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1880127434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1fd0fac4df4f5f47912d34c556e4c9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  URL: https://authentication-three-kappa.vercel.app
 --- !u!1 &1910059216
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,10 +14,10 @@ public class AuthenticationController : MonoBehaviour
     public GameObject loading;
     public Button registerBtn;
     public Button loginBtn;
-
-    private string URL = "https://authentication-three-kappa.vercel.app";
+    private string URL = "";
     private void Start()
     {
+        URL = API.instance.URL;
         loading.SetActive(false);
         registerBtn.onClick.AddListener(() =>
         {
@@ -42,7 +42,6 @@ public class AuthenticationController : MonoBehaviour
 
         Auth auth = new(username, password);
         string jsonData = JsonConvert.SerializeObject(auth);
-
         string registerURL = URL + "/auth/register";
 
         using (UnityWebRequest www = new(registerURL, "POST"))
@@ -76,7 +75,6 @@ public class AuthenticationController : MonoBehaviour
         loading.SetActive(true);
         Auth auth = new(username, password);
         string jsonData = JsonConvert.SerializeObject(auth);
-
         string loginURL = URL + "/auth/login";
 
         using (UnityWebRequest www = new(loginURL, "POST"))
@@ -87,8 +85,6 @@ public class AuthenticationController : MonoBehaviour
             www.SetRequestHeader("Content-Type", "application/json");
 
             yield return www.SendWebRequest();
-
-            Debug.Log(www.error);
 
             if (www.responseCode == 200)
             {

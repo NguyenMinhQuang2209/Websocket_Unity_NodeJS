@@ -10,10 +10,12 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float moveSpeed = 1f;
 
     public Transform playerAvatar;
+    private PlayerAnimator playerAnimator;
     private void Start()
     {
         network = GetComponent<NetworkObject>();
         rb = GetComponent<Rigidbody2D>();
+        playerAnimator = GetComponent<PlayerAnimator>();
     }
     private void FixedUpdate()
     {
@@ -36,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
             PlayerNeworkManager.instance.PlayerMovement(transform.position, new(0f, input.x < 0f ? 180f : 0f, 0f));
             speed = 1f;
         }
+        playerAnimator.SetFloat("Speed", speed, true);
         PlayerNeworkManager.instance.PlayerAnimator("Speed", speed);
     }
     public void ChangePositionAndRotation(Vector3 newPos, Vector3 newRot)

@@ -5,8 +5,17 @@ using UnityEngine;
 public class PlayerAnimator : MonoBehaviour
 {
     public Animator animator;
-    public void SetFloat(string name, float value)
+    private NetworkObject networkObject;
+    private void Start()
     {
+        networkObject = GetComponent<NetworkObject>();
+    }
+    public void SetFloat(string name, float value, bool useDirectly = false)
+    {
+        if (networkObject.isOwner && !useDirectly)
+        {
+            return;
+        }
         animator.SetFloat(name, value);
     }
     public void SetBool(string name, bool v)

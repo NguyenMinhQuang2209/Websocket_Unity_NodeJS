@@ -1,3 +1,4 @@
+using Cinemachine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,11 +8,11 @@ public class PlayerMovement : MonoBehaviour
     private NetworkObject network;
     private Rigidbody2D rb;
     [SerializeField] private float moveSpeed = 1f;
-    private PlayerAnimator playerAnimator;
+
+    public Transform playerAvatar;
     private void Start()
     {
         network = GetComponent<NetworkObject>();
-        playerAnimator = GetComponent<PlayerAnimator>();
         rb = GetComponent<Rigidbody2D>();
     }
     private void FixedUpdate()
@@ -29,12 +30,17 @@ public class PlayerMovement : MonoBehaviour
         float speed = 0f;
         if (input.sqrMagnitude >= 0.1f)
         {
-            transform.rotation = Quaternion.Euler(new(0f, input.x < 0f ? 180f : 0f, 0f));
+            playerAvatar.transform.rotation = Quaternion.Euler(new(0f, input.x < 0f ? 180f : 0f, 0f));
             rb.MovePosition(rb.position + moveSpeed * Time.deltaTime * input);
 
             PlayerNeworkManager.instance.PlayerMovement(transform.position, new(0f, input.x < 0f ? 180f : 0f, 0f));
             speed = 1f;
         }
         PlayerNeworkManager.instance.PlayerAnimator("Speed", speed);
+    }
+    public void ChangePositionAndRotation(Vector3 newPos, Vector3 newRot)
+    {
+        transform.position = newPos;
+        playerAvatar.transform.rotation = Quaternion.Euler(newRot);
     }
 }

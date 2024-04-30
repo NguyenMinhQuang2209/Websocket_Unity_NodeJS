@@ -10,7 +10,6 @@ public class HistoryUI : MonoBehaviour
 {
     public Transform container;
     public Scrollbar scrollbar;
-    public float scrollBarTargetValue = 1f;
     public HistoryUIItem historyUIItem;
 
     private string URL = "";
@@ -42,8 +41,13 @@ public class HistoryUI : MonoBehaviour
                     HistoryUIItem item = Instantiate(historyUIItem, container.transform);
                     item.HistoryUIItemInit(historyData.survivalTime, historyData.dateText);
                 }
+                Invoke(nameof(ScrollToTop), 0.05f);
             }
         }
+    }
+    public void ScrollToTop()
+    {
+        scrollbar.value = 1f;
     }
 }
 public class HistoryData

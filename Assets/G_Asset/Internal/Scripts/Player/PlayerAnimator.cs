@@ -4,11 +4,7 @@ using UnityEngine;
 
 public class PlayerAnimator : MonoBehaviour
 {
-    private Animator animator;
-    private void Start()
-    {
-        animator = GetComponent<Animator>();
-    }
+    public Animator animator;
     public void SetFloat(string name, float value)
     {
         animator.SetFloat(name, value);

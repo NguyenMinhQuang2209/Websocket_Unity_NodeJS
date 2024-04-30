@@ -26,6 +26,7 @@ public class CharacterSelectController : MonoBehaviour
             Play();
         });
         nameTxt.text = PlayerPrefs.GetString("username");
+        ChangeSprite();
     }
     public void Left()
     {

@@ -87,7 +87,10 @@ public class PlayerNeworkManager : MonoBehaviour
             {
                 NetworkObject currentPlayer = player.player;
                 DataItem dataItem = data.data[0];
-                currentPlayer.transform.SetPositionAndRotation(new(dataItem.position[0], dataItem.position[1], dataItem.position[2]), Quaternion.Euler(new(dataItem.rotation[0], dataItem.rotation[1], dataItem.rotation[2])));
+                if (currentPlayer.TryGetComponent<PlayerMovement>(out var playerMovement))
+                {
+                    playerMovement.ChangePositionAndRotation(new(dataItem.position[0], dataItem.position[1], dataItem.position[2]), new(dataItem.rotation[0], dataItem.rotation[1], dataItem.rotation[2]));
+                }
                 break;
             }
         }

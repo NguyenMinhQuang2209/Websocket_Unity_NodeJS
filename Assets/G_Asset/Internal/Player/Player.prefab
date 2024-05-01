@@ -403,8 +403,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4391514525310213141}
   - component: {fileID: 9220651498385598957}
+  - component: {fileID: 1653485372750860346}
   m_Layer: 0
-  m_Name: Circle
+  m_Name: weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -477,6 +478,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1653485372750860346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4155054267382144690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f2a0f6e56330404dab5ba3af43410ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponSpriteRender: {fileID: 9220651498385598957}
 --- !u!1 &6769696465404221401
 GameObject:
   m_ObjectHideFlags: 0
@@ -551,7 +565,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: -1442216141, guid: 8f7a60065e3984c489b9c4d41bc3dc4e, type: 3}
+  m_Sprite: {fileID: -150523396, guid: 0c187a32c5bde4747be8d00770b07403, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -572,7 +586,7 @@ Animator:
   m_GameObject: {fileID: 6769696465404221401}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: d235a1ab336c3dc4aaaa1b3d119e4af6, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0d16175b273af4b4786d66d9647854d1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

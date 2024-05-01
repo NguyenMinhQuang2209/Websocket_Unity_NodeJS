@@ -1951,6 +1951,7 @@ GameObject:
   - component: {fileID: 1880127438}
   - component: {fileID: 1880127440}
   - component: {fileID: 1880127439}
+  - component: {fileID: 1880127441}
   m_Layer: 0
   m_Name: controller_dontdestroy
   m_TagString: Untagged
@@ -2048,6 +2049,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   URL: https://authentication-three-kappa.vercel.app
+--- !u!114 &1880127441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1880127434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 151bcab5ac089e442bdc1446d622ccc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapons:
+  - timeBwtAttack: 2
+    bulletSpeed: 2
+    bulletDamage: 2
+    bulletTexture: {fileID: 1772703093, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
+    weaponTexture: {fileID: -537537479, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
+    bulletURL: 
+    weaponURL: 
+    bulletDelayDieTime: 8
+    itemName: Weapon5
+  - timeBwtAttack: 2
+    bulletSpeed: 2
+    bulletDamage: 2
+    bulletTexture: {fileID: -144335857, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
+    weaponTexture: {fileID: -537537479, guid: 0d5e657ee5a074e4baa53d5b248a01d2, type: 3}
+    bulletURL: 
+    weaponURL: 
+    bulletDelayDieTime: 8
+    itemName: Weapon4
+  getWeaponsData: []
 --- !u!1 &1910059216
 GameObject:
   m_ObjectHideFlags: 0
